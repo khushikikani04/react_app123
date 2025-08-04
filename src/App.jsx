@@ -3,34 +3,30 @@ import Search from "./components/search.jsx";
 import Spinner from "./components/spinner.jsx";
 
 const API_BASE_URL = 'https://api.themoviedb.org/3';
-
 const API_KEY = import.meta.env.VITE_TMDB_API_KEY
 
 const API_OPTIONS = {
   method : 'GET',
   headers:{
-    accept: 'application.json',
+    accept: 'application/json',
     authorization: `Bearer ${API_KEY}`
   }
 }
 
 const App = () => {  
   const [searchTerm, setSearchTerm] = useState('');
-
   const [erroMessage, setErrorMessage] = useState('');
-
-  const[movieList, setmovieList] = useState([]);
-
-  const[isLoading, setisLoading] = useState(false);
+  const [movieList, setmovieList] = useState([]);
+  const [isLoading, setisLoading] = useState(false);
 
   const fetchmovies = async() =>{
-    setisLoading();
+    setisLoading(true);
     setErrorMessage('');
 
     try{
-      const endpoint = `${API_BASE_URL}/discover/movie?sort_by=popularity.desc`
+      const endpoint = `${API_BASE_URL}/discover/movie?sort_by=popularity.desc`;
 
-      const response = await fetch(endpoint, API_OPTIONS)
+      const response = await fetch(endpoint, API_OPTIONS);
 
       if(!response.ok) {
         throw new Error('Failed to fetch movies');
@@ -47,7 +43,7 @@ const App = () => {
       setmovieList(data.result || []);
     } catch (error) {
       console.error(`Error fetching movies:  ${error}`);
-      setErrorMessage(`Error fetching movies. please try again later.`)
+      setErrorMessage(`Error fetching movies. please try again later.`);
     } finally {
       setisLoading (false);
     }
@@ -63,7 +59,7 @@ const App = () => {
 
       <div className="wrapper">
         <header>
-          <img src="/hero.png" alt="Hero Banner" />
+          <img src="./hero.png" alt="Hero Banner" />
           <h1>
             find <span className="text-gradient">movies</span> you'll enjoy without the hassle
           </h1>
