@@ -5,10 +5,23 @@ const moviecard = ({ movie :
 }) => {
   return (
     <div>
-        <img src={poster_path ? `https://image.tmdb.org/t/p/w500/${poster_path}`:
-    'no-movie.png'}/>
+        <img src={poster_path ? `https://image.tmdb.org/t/p/w500/${poster_path}`:'no-movie.png'}
+        alt={title}
+        />
+        <div className="mt-4">
+          <h3>{title}</h3>
+
+          <div className="content">
+            <div className="rating">
+              <img src='star.svg' alt='star Icon'  />
+
+            </div>
+          </div>
+        </div>
     </div>
   )
 }
 
 export default moviecard
+
+
