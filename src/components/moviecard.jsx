@@ -1,9 +1,12 @@
 import React from 'react'
 
-const moviecard = ({ movie }) => {
+const moviecard = ({ movie :
+    {title, vote_avarage, poster_path, release_date, original_language}
+}) => {
   return (
     <div>
-      <p key={movie.id} className='text-white'>{movie.title}</p>
+        <img src={poster_path ? `https://image.tmdb.org/t/p/w500/${poster_path}`:
+    'no-movie.png'}/>
     </div>
   )
 }
