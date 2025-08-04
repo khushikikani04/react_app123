@@ -54,6 +54,7 @@ const App = () => {
   } 
   
   useEffect( ()  => {
+    fetchmovies();
      }, [] );
   
   return (
@@ -71,7 +72,7 @@ const App = () => {
        </header>
 
        <section className="all-movies">
-        <h2>All Movies</h2>
+        <h2 className="mt-[20px]">All Movies</h2>
 
         {isLoading ? (
           <Spinner />
@@ -80,8 +81,7 @@ const App = () => {
         ) :(
           <ul>
             {movieList.map((movie) => (
-              <p key ={movie.id} className="text-white">{movie.title}</p>
-
+              <moviecard  key={movie.id} movie={movie} />
             ))}
           </ul>
         )
