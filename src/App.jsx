@@ -9,9 +9,9 @@ const API_BASE_URL =  'https://api.themoviedb.org/3';
 const API_KEY = import.meta.env.VITE_TMDB_API_KEY;
 
 const API_OPTIONS = {
-  method : "GET",
+  method : 'GET',
   headers: {
-    accept: "application/json",
+    accept: 'application/json',
     Authorization: `Bearer ${API_KEY}`,
  },
 };
@@ -80,7 +80,7 @@ const App = () => {
               {trendingMovies.map((movie, index) => (
                 <li key={movie.$id || index}>
                   <p>{index + 1}</p>
-                  <img src={movie.poster_url} alt={movie.title} />
+                  <img src="https://image.tmdb.org/t/p/w500/qmDpIHrmpJINaRKAfWQfftjCdyi.jpg"/>
                 </li>
               ))}
             </ul>
